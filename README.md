@@ -23,6 +23,18 @@
 纹理映射与透视矫正  
 光照模型（漫反射和镜面反射）  
 shadow map阴影算法  
+
+## Basic library:
+1. opencv，用于读取图像，设置纹理
+2. eigen，用于方便处理向量和矩阵的运算
+
+## Step:
+1. 借助opencv库读取图像，设置纹理  
+    brew 安装 opencv2: 添加Header search path和Library search path  
+2. class Texture  
+    读取纹理贴图数据  
+3. class Loader  
+    加载模型顶点、法线和纹理
   
 ## Process:
 基础类：  
@@ -40,18 +52,6 @@ Buffer类，用于创建各种缓冲，ZBuffer等
 Shader类，决定模型属性（颜色，贴图，光照，阴影等）  
 Window类，创建窗口  
 Renderer类，渲染窗口  
-
-## Basic library:
-1. opencv，用于读取图像，设置纹理
-2. eigen，用于方便处理向量和矩阵的运算
-
-## Step:
-1. 借助opencv库读取图像，设置纹理  
-    brew 安装 opencv2: 添加Header search path和Library search path  
-2. class Texture  
-    读取纹理贴图数据  
-3. class Loader  
-    加载模型顶点、法线和纹理
     
 
 ## Note:
