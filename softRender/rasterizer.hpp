@@ -11,6 +11,8 @@
 #include <eigen3/Eigen/Eigen>
 #include <climits>
 
+#include "Triangle.hpp"
+
 // 光栅化器
 // 用于清空屏幕，
 // 几何阶段：顶点着色器、曲面细分着色器，几何着色器（包含MVP）、剪裁、屏幕映射；
@@ -28,6 +30,11 @@ public:
     void set_model(Eigen::Matrix4f model);
     void set_view(Eigen::Matrix4f view);
     void set_projection(Eigen::Matrix4f projection);
+    
+//    绘制模型 ：通过遍历三角形进行绘制，进而绘制模型
+    void draw(std::vector<Triangle *> model_triangles);
+//    重心坐标绘制三角形
+    void draw_triangle(const Triangle & triangle);
     
 private:
 //    屏幕宽高
