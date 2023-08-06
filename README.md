@@ -50,12 +50,12 @@ shadow map阴影算法
         片元着色器  
         逐片元操作  
 5. main函数
-    . 加载模型
-    . 定义相机属性
-    . render loop
-        . 清空屏幕 ： 设置深度缓存以及fragment缓存
-        . 设置mvp matrix
----
+    . 加载模型  
+    . 定义相机属性  
+    . render loop  
+        . 清空屏幕 ： 设置深度缓存以及fragment缓存  
+        . 设置mvp matrix  
+
   
 ## Process:
 基础类：  
