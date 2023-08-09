@@ -31,10 +31,23 @@ public:
     void set_view(Eigen::Matrix4f view);
     void set_projection(Eigen::Matrix4f projection);
     
+//    获取元素
+    std::vector<Eigen::Vector3f> get_frame_buffer();
+    
 //    绘制模型 ：通过遍历三角形进行绘制，进而绘制模型
     void draw(std::vector<Triangle *> model_triangles);
 //    重心坐标绘制三角形
-    void draw_triangle(const Triangle & triangle);
+    void draw_triangle(const Triangle & triangle, Eigen::Vector3f (&view_vertex)[3]);
+    
+//    判断是否在三角形内部
+    bool pixel_in_triangle(const Eigen::Vector4f (&screen_vertex)[3], std::pair<float, float> pos);
+//    计算重心坐标，并保存在tuple（c++11）中
+    std::tuple<float, float, float> compute_barycentric_coordinates(const Eigen::Vector4f (&v)[3], std::pair<float, float> pos);
+//    属性插值函数
+    Eigen::Vector3f interpolate(float alpha, float beta, float gamma, const Eigen::Vector3f& vertex1, const Eigen::Vector3f& vertex2, const Eigen::Vector3f& vertex3, float weight);
+    
+//    着色 : 默认采用blinn_phong着色模型
+    Eigen::Vector3f phong_fragment_shader(Eigen::Vector3f color, Eigen::Vector3f normal, Eigen::Vector2f texcoord, Eigen::Vector3f frag_pos);
     
 private:
 //    屏幕宽高
